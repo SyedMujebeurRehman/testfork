@@ -1,0 +1,17 @@
+ on: 
+    workflow_dispatch:
+      inputs:
+        username:syed mujeebur rehman
+          description: 'Your GitHub username'
+          required: true
+        reason:
+          description: 'Why are you running this workflow manually? for learning'
+          required: true
+          default: 'I am running tests before implementing an automated workflow'
+jobs:
+  tests_manual_workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - run: >
+        echo "User ${{ github.event.inputs.username }} ran a workflow manually."
+        echo "Because ${{ github.event.inputs.reason }}."
